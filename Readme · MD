@@ -1,0 +1,18 @@
+# Java Skill Bee Club Website (plain HTML, CSS, JS)
+
+Put ALL these files directly inside your `java_skillbee_website` folder, next to Activity_Winners, Event_pics, club_members and your photos. Nothing needs installing.
+
+## Run
+1. Double-click `start-photo-watcher.bat`. Keep its window open. It scans your photo folders every 3 seconds and rewrites `images.js`.
+2. In VS Code, right-click `index.html` and choose Open with Live Server.
+3. The page checks for new photos every 5 seconds and updates itself.
+
+## Add photos
+Copy .jpg/.jpeg/.png/.webp files into Activity_Winners or Event_pics. They appear in the carousels within a few seconds while the watcher is running. If you add photos while the watcher is closed, start it once and it catches up.
+Optional captions: put a `metadata.json` in the folder, e.g. {"workshop.jpg": {"title": "Java Workshop", "date": "12 Oct 2026"}}
+
+## Edit details
+Open `data.js` to edit members, the Principal and VP/HOD names, contact details, social links and achievements.
+
+## Deploy
+Upload all files and folders to any static host (GitHub Pages, Netlify). Run the watcher before uploading so images.js is current. New photos appear online only after you upload them and the updated images.js.
