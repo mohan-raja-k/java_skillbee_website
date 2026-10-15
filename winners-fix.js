@@ -83,8 +83,15 @@
   }
 
   function getList() {
-    return listFromFolder().catch(function () { return listByProbe(); });
-  }
+    return Promise.resolve([
+        "1st_event.jpeg",
+        "Screenshot 2026-10-14 154630.png",
+        "Screenshot 2026-10-14 154717.png",
+        "Screenshot 2026-10-14 154733.png",
+        "Screenshot 2026-10-14 154748.png",
+        "Screenshot 2026-10-14 154817.png"
+    ]);
+}
 
   function findSection() {
     var h = Array.prototype.slice.call(document.querySelectorAll("h1,h2,h3"))
