@@ -84,12 +84,12 @@
 
   function getList() {
     return Promise.resolve([
-        "1st_event.jpeg",
-        "Screenshot 2026-10-14 154630.png",
-        "Screenshot 2026-10-14 154717.png",
-        "Screenshot 2026-10-14 154733.png",
-        "Screenshot 2026-10-14 154748.png",
-        "Screenshot 2026-10-14 154817.png"
+        "1st.jpeg",
+        "2nd.jpeg",
+        "3rd.jpeg",
+        "4th.png",
+        "5th.png",
+        "6th.png"
     ]);
 }
 

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Java Skill Bee Club - Website Launch</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+
+            background: linear-gradient(
+                135deg,
+                #020617,
+                #0f172a,
+                #1e3a8a
+            );
+
+            color: white;
+        }
+
+        .launch-container {
+            width: 100%;
+            max-width: 700px;
+            padding: 45px 25px;
+
+            border: 2px solid #facc15;
+            border-radius: 25px;
+
+            background: rgba(255, 255, 255, 0.07);
+
+            box-shadow: 0 0 35px rgba(250, 204, 21, 0.25);
+
+            animation: appear 1.2s ease;
+        }
+
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo {
+            width: 140px;
+            height: 140px;
+            object-fit: contain;
+            margin-bottom: 20px;
+        }
+
+        .welcome {
+            color: #ffffff;
+            font-size: 17px;
+            margin-bottom: 12px;
+            letter-spacing: 2px;
+        }
+
+        h1 {
+            font-size: 36px;
+            color: #facc15;
+            margin-bottom: 18px;
+            line-height: 1.3;
+        }
+
+        h2 {
+            font-size: 25px;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        .college {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #cbd5e1;
+            margin-bottom: 25px;
+        }
+
+        .tagline {
+            font-size: 18px;
+            font-weight: bold;
+            color: #facc15;
+            letter-spacing: 2px;
+            margin: 25px 0;
+        }
+
+        .description {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #e2e8f0;
+            margin-bottom: 30px;
+        }
+
+        .launch-button {
+            display: inline-block;
+            padding: 17px 35px;
+
+            background: linear-gradient(
+                45deg,
+                #facc15,
+                #fbbf24
+            );
+
+            color: #020617;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+
+            box-shadow: 0 0 25px rgba(250, 204, 21, 0.4);
+
+            transition: all 0.3s ease;
+        }
+
+        .launch-button:hover {
+            background: #ffffff;
+            transform: scale(1.07);
+            box-shadow: 0 0 35px rgba(255, 255, 255, 0.5);
+        }
+
+        .launch-button:disabled {
+            opacity: 0.7;
+            cursor: wait;
+            transform: none;
+        }
+
+        .footer {
+            margin-top: 35px;
+            font-size: 13px;
+            color: #94a3b8;
+            line-height: 1.8;
+        }
+
+        @media (max-width: 480px) {
+            .launch-container {
+                padding: 35px 18px;
+            }
+
+            .logo {
+                width: 110px;
+                height: 110px;
+            }
+
+            h1 {
+                font-size: 27px;
+            }
+
+            h2 {
+                font-size: 20px;
+            }
+
+            .college,
+            .description {
+                font-size: 14px;
+            }
+
+            .launch-button {
+                padding: 15px 25px;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="launch-container">
+
+        <!-- Club Logo -->
+        <img
+            src="club_logo.jpeg"
+            alt="Java Skill Bee Club Logo"
+            class="logo"
+        >
+
+        <div class="welcome">
+            WELCOME TO A NEW BEGINNING
+        </div>
+
+        <h1>JAVA SKILL BEE CLUB</h1>
+
+        <h2>Website Launch Ceremony</h2>
+
+        <div class="college">
+            School of Computer Science<br>
+            Vinayaka Mission's Kirupananda Variyar Engineering College<br>
+            Salem
+        </div>
+
+        <div class="tagline">
+            LEARN • BUILD • INNOVATE
+        </div>
+
+        <p class="description">
+            A new journey of coding, creativity, and innovation begins here!
+            Join us as we proudly launch our digital platform and take
+            another step towards a brighter technological future.
+        </p>
+
+        <!-- Launch Button -->
+        <button
+            type="button"
+            class="launch-button"
+            id="launchButton"
+        >
+            🚀 LAUNCH OUR WEBSITE
+        </button>
+
+        <div class="footer">
+            Designed with creativity by Java Skill Bee Club<br>
+            Innovating Today • Inspiring Tomorrow
+        </div>
+
+    </div>
+
+    <!-- Applause Audio File -->
+    <audio
+        id="clapSound"
+        src="clap.mp3"
+        preload="auto"
+    ></audio>
+
+    <script>
+        const launchButton = document.getElementById("launchButton");
+        const clapSound = document.getElementById("clapSound");
+
+        const websiteURL =
+            "https://java-skillbee-website.vercel.app";
+
+        launchButton.addEventListener("click", async function () {
+
+            launchButton.disabled = true;
+            launchButton.textContent = "🎉 LAUNCHING WEBSITE...";
+
+            try {
+                clapSound.currentTime = 0;
+                await clapSound.play();
+            } catch (error) {
+                console.log("Clapping sound could not play:", error);
+            }
+
+            // Wait 2.5 seconds, then open the club website.
+            setTimeout(function () {
+                window.location.href = websiteURL;
+            }, 2500);
+
+        });
+    </script>
+
+</body>
+</html>
